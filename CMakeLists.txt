@@ -42,7 +42,7 @@ add_custom_target (distclean
     COMMAND ${CMAKE_COMMAND} -P ${CMAKE_SOURCE_DIR}/distclean.cmake
 )
 
-install(EXPORT dirent
+install(
   FILE
     dirent.cmake
   NAMESPACE

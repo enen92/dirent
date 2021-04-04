@@ -42,6 +42,14 @@ add_custom_target (distclean
     COMMAND ${CMAKE_COMMAND} -P ${CMAKE_SOURCE_DIR}/distclean.cmake
 )
 
+install(EXPORT dirent
+  FILE
+    dirent.cmake
+  NAMESPACE
+    dirent::
+  DESTINATION
+    lib/cmake/dirent
+)
 install(
   FILES
     cmake/dirent-config.cmake

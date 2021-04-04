@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 2.8.11)
-project (dirent LANGUAGES C CXX)
+project (dirent VERSION 1.23.2 LANGUAGES C CXX)
 
 # Initialize C and C++ compilers
 enable_language (C CXX)
@@ -12,6 +12,12 @@ if (NOT CMAKE_BUILD_TYPE)
         FORCE
     )
 endif (NOT CMAKE_BUILD_TYPE)
+
+write_basic_package_version_file(
+  ${CMAKE_CURRENT_BINARY_DIR}/dirent-config-version.cmake
+  VERSION ${dirent_VERSION}
+  COMPATIBILITY AnyNewerVersion
+)
 
 # Use the include directory only on Windows
 if (WIN32)
@@ -30,6 +36,15 @@ endif (WIN32)
 add_custom_target (distclean
     COMMAND ${CMAKE_BUILD_TOOL} clean
     COMMAND ${CMAKE_COMMAND} -P ${CMAKE_SOURCE_DIR}/distclean.cmake
+)
+
+install(EXPORT dirent
+  FILE
+    dirent.cmake
+  NAMESPACE
+    dirent::
+  DESTINATION
+    lib/cmake/dirent
 )
 
 # Build example programs

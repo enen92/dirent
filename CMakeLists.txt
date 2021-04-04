@@ -36,6 +36,7 @@ else (WIN32)
 endif (WIN32)
 
 # Add distclean target
+include(CMakePackageConfigHelpers)
 add_custom_target (distclean
     COMMAND ${CMAKE_BUILD_TOOL} clean
     COMMAND ${CMAKE_COMMAND} -P ${CMAKE_SOURCE_DIR}/distclean.cmake

@@ -1,4 +1,7 @@
 cmake_minimum_required (VERSION 2.8.11)
+if (POLICY CMP0048)
+  cmake_policy(SET CMP0048 NEW)
+endif (POLICY CMP0048)
 project (dirent VERSION 1.23.2 LANGUAGES C CXX)
 
 # Initialize C and C++ compilers

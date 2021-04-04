@@ -16,6 +16,7 @@ if (NOT CMAKE_BUILD_TYPE)
     )
 endif (NOT CMAKE_BUILD_TYPE)
 
+include(CMakePackageConfigHelpers)
 write_basic_package_version_file(
   ${CMAKE_CURRENT_BINARY_DIR}/dirent-config-version.cmake
   VERSION ${dirent_VERSION}
@@ -36,7 +37,6 @@ else (WIN32)
 endif (WIN32)
 
 # Add distclean target
-include(CMakePackageConfigHelpers)
 add_custom_target (distclean
     COMMAND ${CMAKE_BUILD_TOOL} clean
     COMMAND ${CMAKE_COMMAND} -P ${CMAKE_SOURCE_DIR}/distclean.cmake
